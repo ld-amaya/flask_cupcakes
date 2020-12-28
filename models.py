@@ -1,16 +1,15 @@
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
-image_default = "https://tinyurl.com/demo-cupcake"
 
 
-class CupCake(db.Model):
+class Cupcake(db.Model):
     """Creates the cupckate table"""
 
     __tablename__ = "cupcakes"
 
     id = db.Column(db.Integer,
-                   primary_key,
+                   primary_key=True,
                    autoincrement=True)
     flavor = db.Column(db.Text,
                        nullable=False)
@@ -19,12 +18,8 @@ class CupCake(db.Model):
     rating = db.Column(db.Float,
                        nullable=False)
     image = db.Column(db.Text,
-                      nullable=False)
-
-    def image_url(self):
-        """Handles image URL""""
-
-        return self.image or image_default
+                      nullable=False,
+                      default="https://tinyurl.com/demo-cupcake")
 
     def serialized(self):
         """Handles serializing SQLAlchemy Response"""
@@ -38,7 +33,7 @@ class CupCake(db.Model):
 
 
 def connect_db(app):
-    """"Connect to database""""
+    """Connect to database"""
 
     db.app = app
     db.init_app(app)
