@@ -4,5 +4,33 @@
 
 {% block content %}
 
-    <h1>This is the content</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <h2 class = "mt-4">Add Cupcake</h2>
+            <form class='form' id="add_cupake">
+                <div class="form-group">
+                    <label for="flavor">Add Flavor</label>
+                    <input type="text" class = 'form-control' name='flavor' id='flavor'>
+                </div>
+                <div class="form-group">
+                    <label for="size">Add Size</label>
+                    <input type="text" class = 'form-control' name='size' id='size'>
+                </div>
+                <div class="form-group">
+                    <label for="size">Add Rating</label>
+                    <input type="number" class = 'form-control' name='rating' id='rating'>
+                </div>
+                <div class="form-group">
+                    <label for="size">Add Image</label>
+                    <input type="text" class = 'form-control' name='image' id='image'>
+                </div>
+                <button class ='btn btn-primary btn-sm' id = 'add_cupcake'>Add Cupcake</button>
+            </form>
+        </div>
+        <div class="col-md-9">
+            <h1 class ="text-center mt-3">Cupcake Gallery</h1>
+            <div class = 'row' id = 'cupcake_list'>
+            </div>
+        </div>
+    </div>
 {% endblock %}
